@@ -1,0 +1,180 @@
+.frame {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.scroller {
+  overflow-x: auto;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+
+.table {
+  width: 100%;
+  min-width: 850px;
+  border-collapse: collapse;
+  color: var(--color-text-secondary);
+  font-family: var(--font-data);
+  font-size: 10px;
+  line-height: 1;
+  table-layout: fixed;
+  font-variant-numeric: tabular-nums;
+}
+
+.table th,
+.table td {
+  overflow: hidden;
+  padding: 0 12px;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table thead tr {
+  height: 28px;
+  background: var(--color-surface-raised);
+}
+
+.table thead th {
+  border-bottom: 1px solid var(--color-border-strong);
+  color: var(--color-text-muted);
+  font-size: 8px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.table thead th:first-child,
+.table tbody th {
+  width: 48%;
+  text-align: left;
+}
+
+.table thead th:nth-child(2),
+.table thead th:nth-child(3),
+.table thead th:nth-child(4) {
+  width: 7%;
+}
+
+.table thead th:nth-child(5) {
+  width: 12%;
+}
+
+.table thead th:nth-child(6) {
+  width: 19%;
+}
+
+.table tbody tr {
+  height: 24px;
+  border-top: 1px solid rgba(48, 57, 70, 0.46);
+  transition: background-color 120ms ease;
+}
+
+.table tbody tr:first-child {
+  border-top: 0;
+}
+
+.table tbody tr:hover {
+  background: var(--color-surface-hover);
+}
+
+.table tbody th {
+  height: 24px;
+  font-weight: 500;
+}
+
+.marketLink {
+  display: flex;
+  min-width: 0;
+  height: 24px;
+  align-items: center;
+  gap: 8px;
+}
+
+.statusDot {
+  width: 5px;
+  height: 5px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+}
+
+.statusDot.live {
+  background: var(--color-yes);
+  box-shadow: 0 0 0 2px var(--color-yes-soft);
+}
+
+.category {
+  width: 70px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+}
+
+.question {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 560;
+  text-overflow: ellipsis;
+  transition: color 120ms ease;
+}
+
+.marketLink:hover .question {
+  color: var(--color-accent);
+}
+
+.lifecycle {
+  margin-left: auto;
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: 8px;
+  font-weight: 650;
+  text-transform: uppercase;
+}
+
+.yes {
+  color: var(--color-yes);
+}
+
+.no {
+  color: var(--color-no);
+}
+
+.positive {
+  color: var(--color-yes);
+}
+
+.negative {
+  color: var(--color-no);
+}
+
+@media (max-width: 720px) {
+  .table {
+    min-width: 760px;
+  }
+
+  .category {
+    width: 54px;
+  }
+
+  .lifecycle {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .table tbody tr,
+  .question {
+    transition: none;
+  }
+}

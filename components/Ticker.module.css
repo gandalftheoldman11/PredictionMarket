@@ -1,0 +1,85 @@
+.ticker {
+  position: relative;
+  height: 36px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-page);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: tickerScroll 90s linear infinite;
+}
+
+.ticker:hover .track,
+.ticker:focus-within .track {
+  animation-play-state: paused;
+}
+
+@keyframes tickerScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.item {
+  display: flex;
+  min-height: 35px;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 7px 17px;
+  border-right: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-family: var(--font-data);
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.name {
+  max-width: 260px;
+  overflow: hidden;
+  color: var(--color-text-secondary);
+  text-overflow: ellipsis;
+}
+
+.price {
+  color: var(--color-text);
+  font-family: var(--font-data);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.positive {
+  color: var(--color-yes);
+  font-family: var(--font-data);
+}
+
+.negative {
+  color: var(--color-no);
+  font-family: var(--font-data);
+}
+
+.flat {
+  color: var(--color-text-muted);
+  font-family: var(--font-data);
+}
+
+.item:hover .name {
+  color: var(--color-text);
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}

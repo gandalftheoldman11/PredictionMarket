@@ -1,0 +1,232 @@
+.panel {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 54px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.kicker {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--color-text-muted);
+  font-family: var(--font-data);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.columnLabels {
+  display: grid;
+  width: 88px;
+  grid-template-columns: 48px 40px;
+  color: var(--color-text-muted);
+  font-family: var(--font-data);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr) 88px;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-height: 55px;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--color-border);
+  transition:
+    background-color 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.row:hover {
+  background: var(--color-surface-raised);
+}
+
+.row:focus-visible {
+  z-index: 1;
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.rank {
+  color: var(--color-text-muted);
+  font-family: var(--font-data);
+  font-size: 10px;
+}
+
+.copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.copy strong {
+  overflow: hidden;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 140ms ease;
+}
+
+.row:hover .copy strong {
+  color: var(--color-text);
+}
+
+.copy > span {
+  overflow: hidden;
+  color: var(--color-text-muted);
+  font-family: var(--font-data);
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.metaData {
+  font-family: var(--font-data);
+}
+
+.numbers {
+  display: grid;
+  min-width: 88px;
+  grid-template-columns: 48px 40px;
+  align-items: baseline;
+  text-align: right;
+}
+
+.numbers strong {
+  color: var(--color-text);
+  font-family: var(--font-data);
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.numbers > span {
+  font-family: var(--font-data);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.positive {
+  color: var(--color-yes);
+}
+
+.negative {
+  color: var(--color-no);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 36px;
+  padding: 0 14px;
+  color: var(--color-text-muted);
+  font-size: 11px;
+  font-weight: 650;
+  transition:
+    color 140ms ease,
+    background-color 140ms ease;
+}
+
+.footer:hover {
+  color: var(--color-text);
+  background: var(--color-surface-raised);
+}
+
+.footer:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+@media (max-width: 1060px) {
+  .list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .row:nth-child(odd) {
+    border-right: 1px solid var(--color-border);
+  }
+}
+
+@media (max-width: 620px) {
+  .header {
+    min-height: 50px;
+  }
+
+  .list {
+    display: grid;
+    overflow-x: auto;
+    grid-template-columns: none;
+    grid-auto-columns: minmax(280px, 84vw);
+    grid-auto-flow: column;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    scrollbar-width: none;
+  }
+
+  .list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .row {
+    min-height: 64px;
+    border-right: 1px solid var(--color-border);
+    scroll-snap-align: start;
+  }
+
+  .row:nth-child(odd) {
+    border-right: 1px solid var(--color-border);
+  }
+}
+
+@media (max-width: 360px) {
+  .header {
+    min-height: 46px;
+    padding: 8px 12px;
+  }
+
+  .row {
+    min-height: 58px;
+    padding-inline: 12px;
+  }
+
+  .footer {
+    min-height: 32px;
+    padding-inline: 12px;
+  }
+}

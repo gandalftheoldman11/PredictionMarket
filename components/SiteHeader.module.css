@@ -1,0 +1,188 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-page) 92%, transparent);
+  backdrop-filter: blur(14px);
+}
+
+.inner {
+  display: flex;
+  width: 100%;
+  max-width: var(--content-max);
+  height: 64px;
+  margin: 0 auto;
+  padding: 0 var(--content-gutter);
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.brand {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand:focus-visible,
+.mobileSearch:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.brand:hover .brandCopy strong {
+  color: var(--color-brand-hover);
+}
+
+.brandMark {
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 28px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 3px;
+}
+
+.brandMark span {
+  position: absolute;
+  left: 5px;
+  width: 10px;
+  height: 1px;
+  background: var(--color-brand);
+  transform-origin: left center;
+}
+
+.brandMark span:first-child {
+  top: 9px;
+  transform: rotate(-18deg);
+}
+
+.brandMark span:last-child {
+  bottom: 9px;
+  transform: rotate(18deg);
+}
+
+.brandCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.brandCopy strong {
+  color: var(--color-text);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.12em;
+}
+
+.brandCopy > span {
+  color: var(--color-text-muted);
+  font-family: var(--font-data);
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.utility {
+  display: flex;
+  min-width: 0;
+  margin-left: auto;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.mobileSearch {
+  display: none;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid var(--color-control-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-raised);
+  color: var(--color-text-secondary);
+}
+
+.mobileSearch svg {
+  width: 16px;
+  height: 16px;
+}
+
+.mobileSearch:hover {
+  border-color: var(--color-brand);
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+}
+
+.clock {
+  display: inline-flex;
+  padding-inline: var(--space-1);
+}
+
+.deposit {
+  color: var(--color-on-action);
+}
+
+@media (max-width: 1040px) {
+  .clock {
+    display: none;
+  }
+
+  .brandCopy > span {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .inner {
+    height: 58px;
+    gap: var(--space-2);
+  }
+
+  .brandCopy strong {
+    font-size: 13px;
+  }
+
+  .brandMark {
+    width: 19px;
+    height: 24px;
+  }
+
+  .deposit {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .mobileSearch {
+    display: grid;
+  }
+}
+
+@media (max-width: 470px) {
+  .brandCopy {
+    display: none;
+  }
+
+  .utility {
+    gap: 5px;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand {
+    display: none;
+  }
+
+  .realtime {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

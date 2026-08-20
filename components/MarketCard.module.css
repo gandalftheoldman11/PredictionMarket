@@ -1,0 +1,143 @@
+.card {
+  display: flex;
+  min-width: 0;
+  min-height: 216px;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: 16px;
+}
+
+.topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: var(--space-4);
+}
+
+.questionLink {
+  min-width: 0;
+  border-radius: 2px;
+}
+
+.question {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.38;
+  letter-spacing: -0.012em;
+  transition: color 150ms ease;
+}
+
+.questionLink:hover .question {
+  color: var(--color-brand-hover);
+}
+
+.questionLink:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.probability {
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+.probability strong {
+  display: block;
+  color: var(--color-text);
+  font-family: var(--font-data);
+  font-size: 24px;
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.probability span {
+  display: block;
+  margin-top: 4px;
+  color: var(--color-text-muted);
+  font-family: var(--font-data);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.outcomes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.outcomes > a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.resolved {
+  display: flex;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-raised);
+  color: var(--color-text-secondary);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-family: var(--font-data);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.meta > span:last-child {
+  overflow: hidden;
+  justify-content: flex-end;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.metaLabel {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.metaValue {
+  overflow: hidden;
+  color: var(--color-text-secondary);
+  font-family: var(--font-data);
+  font-size: 9px;
+  text-overflow: ellipsis;
+  text-transform: none;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 540px) {
+  .card {
+    min-height: 204px;
+  }
+}
