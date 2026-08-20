@@ -1,0 +1,353 @@
+.page {
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--content-gutter) var(--space-8);
+}
+
+.header {
+  padding: 24px 0 22px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.backlink {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.backlink:hover {
+  color: var(--color-brand);
+}
+
+.backlink:focus-visible {
+  border-radius: var(--radius-sm);
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.headerGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+  gap: clamp(28px, 4vw, 56px);
+  margin-top: 10px;
+  align-items: center;
+}
+
+.headerCopy {
+  min-width: 0;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.category,
+.live,
+.lifecycle {
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 0 9px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.category {
+  border-color: color-mix(in srgb, var(--color-brand) 24%, var(--color-border));
+  background: var(--color-brand-soft);
+  color: var(--color-brand);
+}
+
+.live {
+  border-color: var(--color-yes-border);
+  background: var(--color-yes-soft);
+  color: var(--color-yes);
+}
+
+.live::before {
+  width: 6px;
+  height: 6px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  content: "";
+}
+
+.lifecycle {
+  background: var(--color-surface-raised);
+  color: var(--color-text-secondary);
+}
+
+.title {
+  max-width: 840px;
+  margin: 12px 0 0;
+  color: var(--color-text);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.blurb {
+  max-width: 72ch;
+  margin: 10px 0 0;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 14px;
+  color: var(--color-text-muted);
+  font-family: var(--font-data);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.marketSummary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.marketSummary > div {
+  min-width: 0;
+  padding: 12px 14px;
+}
+
+.marketSummary > div:not(.primaryMetric) + div {
+  border-left: 1px solid var(--color-border);
+}
+
+.marketSummary dt {
+  color: var(--color-text-muted);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.marketSummary dd {
+  margin: 4px 0 0;
+  color: var(--color-text);
+  font-family: var(--font-data);
+  font-size: 16px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.marketSummary .primaryMetric {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  padding: 15px 16px;
+}
+
+.marketSummary .primaryMetric dd {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0;
+  font-size: clamp(30px, 4vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+}
+
+.primaryQualifier {
+  margin-top: 7px;
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  grid-template-areas: "main rail";
+  gap: 24px;
+  align-items: start;
+  padding-top: 24px;
+}
+
+.chartBlock,
+.supportBlock {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.chartBlock {
+  overflow: hidden;
+  padding: 20px;
+}
+
+.supportBlock {
+  padding: 18px 20px;
+}
+
+.summaryTitle,
+.blockTitle {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.summaryTitle {
+  display: flex;
+  min-height: 28px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.summaryTitle::-webkit-details-marker {
+  display: none;
+}
+
+.summaryTitle::after {
+  color: var(--color-text-muted);
+  content: "+";
+  font-family: var(--font-data);
+  font-size: 18px;
+  font-weight: 450;
+  transition: transform 120ms ease;
+}
+
+.supportBlock details[open] .summaryTitle::after {
+  transform: rotate(45deg);
+}
+
+.summaryTitle:focus-visible {
+  border-radius: var(--radius-sm);
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.rules {
+  margin: 14px 0 0;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 14px;
+}
+
+.factLabel {
+  color: var(--color-text-muted);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.factValue {
+  margin-top: 4px;
+  color: var(--color-text);
+  font-family: var(--font-data);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1080px) {
+  .headerGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .marketSummary {
+    max-width: 560px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "rail"
+      "main";
+  }
+}
+
+@media (max-width: 620px) {
+  .page {
+    padding-inline: 16px;
+  }
+
+  .header {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .title {
+    font-size: 27px;
+    line-height: 1.1;
+  }
+
+  .blurb {
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+
+  .marketSummary > div {
+    padding-inline: 10px;
+  }
+
+  .marketSummary dd {
+    font-size: 14px;
+  }
+
+  .marketSummary .primaryMetric dd {
+    font-size: 34px;
+  }
+
+  .grid {
+    gap: 16px;
+    padding-top: 16px;
+  }
+
+  .chartBlock {
+    margin-inline: -16px;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+    padding: 16px;
+  }
+
+  .facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
