@@ -1,0 +1,75 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3, 12px);
+  min-width: 0;
+  border: 1px solid;
+  border-radius: var(--radius-sm, 6px);
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 140ms ease,
+    border-color 140ms ease;
+}
+
+.button:disabled,
+.button[aria-disabled="true"] {
+  opacity: 0.42;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.yes {
+  color: var(--yes-text);
+  background: var(--color-yes-soft);
+  border-color: var(--color-yes-border);
+}
+
+.yes:hover {
+  background: color-mix(in srgb, var(--color-yes-soft) 72%, var(--color-yes));
+  border-color: var(--color-yes);
+}
+
+.no {
+  color: var(--no-text);
+  background: var(--color-no-soft);
+  border-color: var(--color-no-border);
+}
+
+.no:hover {
+  background: color-mix(in srgb, var(--color-no-soft) 72%, var(--color-no));
+  border-color: var(--color-no);
+}
+
+.sm {
+  min-height: var(--control-sm);
+  padding: 0 var(--space-2, 8px);
+}
+
+.md {
+  min-height: var(--control-md);
+  padding: 0 var(--space-3, 12px);
+}
+
+.label {
+  overflow: hidden;
+  font-weight: 650;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.price {
+  flex-shrink: 0;
+  font-family: var(--font-data, var(--font-mono));
+  font-size: 1.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+}
