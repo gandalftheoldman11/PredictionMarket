@@ -1,0 +1,175 @@
+.page {
+  display: grid;
+  width: min(100%, 1180px);
+  min-height: min(66vh, 680px);
+  margin: 0 auto;
+  place-items: center;
+  padding: clamp(32px, 7vw, 76px) var(--content-gutter);
+}
+
+.panel {
+  width: min(100%, 560px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: clamp(24px, 5vw, 40px);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+}
+
+.stateMark {
+  display: grid;
+  width: fit-content;
+  min-width: 38px;
+  height: 38px;
+  margin-bottom: 20px;
+  place-items: center;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  padding: 0 8px;
+  background: var(--color-brand-soft);
+  color: var(--color-brand);
+  font-family: var(--font-data);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.errorMark {
+  border-color: var(--color-no-border);
+  background: var(--color-no-soft);
+  color: var(--color-no);
+  font-size: 15px;
+}
+
+.eyebrow {
+  margin: 0 0 9px;
+  color: var(--color-text-muted);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(26px, 5vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+}
+
+.copy {
+  max-width: 48ch;
+  margin: 13px 0 0;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.primary, .secondary {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  border-radius: var(--radius-sm);
+  padding: 0 16px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.primary { border-color: var(--color-action); background: var(--color-action); color: var(--color-on-action); }
+.primary:hover { border-color: var(--color-action-hover); background: var(--color-action-hover); }
+.secondary { border-color: var(--color-border-strong); background: var(--color-surface-raised); color: var(--color-text); }
+.secondary:hover { background: var(--color-surface-hover); }
+.primary:focus-visible, .secondary:focus-visible, .details summary:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; }
+
+.details {
+  margin-top: 22px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 12px;
+  color: var(--color-text-muted);
+  font-size: 10px;
+}
+
+.details summary { width: fit-content; cursor: pointer; font-weight: 700; }
+.details code { display: block; margin-top: 7px; font-family: var(--font-data); overflow-wrap: anywhere; }
+
+.loadingShell {
+  width: 100%;
+}
+
+.loadingHead {
+  display: grid;
+  gap: 13px;
+  margin-bottom: 26px;
+}
+
+.skeletonEyebrow, .skeletonTitle, .skeletonMetrics > span, .skeletonTableHead, .skeletonRow {
+  display: block;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-hover);
+}
+
+.skeletonEyebrow { width: 86px; height: 9px; }
+.skeletonTitle { width: min(330px, 76vw); height: 38px; }
+
+.skeletonMetrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.skeletonMetrics > span {
+  min-height: 112px;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+}
+
+.skeletonTable {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.skeletonTableHead { height: 54px; border-radius: 0; border-bottom: 1px solid var(--color-border); background: var(--color-surface); }
+.skeletonRow { height: 68px; border-radius: 0; border-bottom: 1px solid var(--color-border); background: linear-gradient(90deg, var(--color-surface) 0 3%, var(--color-surface-hover) 3% 33%, var(--color-surface) 33% 100%); }
+.skeletonRow:last-child { border-bottom: 0; }
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 720px) {
+  .page { min-height: 62vh; padding-inline: 16px; }
+  .skeletonMetrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .skeletonMetrics > span { min-height: 92px; }
+}
+
+@media (max-width: 420px) {
+  .panel { padding: 22px 18px; }
+  .actions { display: grid; grid-template-columns: 1fr; }
+  .primary, .secondary { width: 100%; }
+  .skeletonTitle { height: 32px; }
+}
